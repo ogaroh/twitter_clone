@@ -14,13 +14,22 @@ class SignInScreen extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
+              elevation: 0,
               shape: RoundedRectangleBorder(
+                  side:
+                      BorderSide(color: Colors.grey.withOpacity(0.8), width: 1),
                   borderRadius: BorderRadius.circular(30)),
               backgroundColor: kWhite,
               foregroundColor: kBlack),
           onPressed: function,
           icon: SvgPicture.asset(svgurl, height: 20),
-          label: Text(text),
+          label: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 8),
+            child: Text(
+              text,
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
       ),
     );
@@ -28,46 +37,141 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text(
-            'See what\'s happening',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Spacer(),
+          const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 8.0,
+            ),
+            child: Text(
+              'See what\'s happening',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+            ),
           ),
-        ),
-        Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Text(
-            'in the world right now.',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              'in the world right now.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900),
+            ),
           ),
-        ),
-        signInWhiteButton('assets/google.svg', 'Continue with Google', () {}),
-        signInWhiteButton('assets/apple.svg', 'Continue with Google', () {}),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  backgroundColor: kBlack,
-                  foregroundColor: kWhite),
-              onPressed: (() {}),
-              child: const Text(
-                'Create account',
-                style: TextStyle(fontWeight: FontWeight.bold),
+          const SizedBox(
+            height: 100,
+          ),
+          signInWhiteButton('assets/google.svg', 'Continue with Google', () {}),
+          const SizedBox(
+            height: 15,
+          ),
+          signInWhiteButton('assets/apple.svg', 'Continue with Apple', () {}),
+          const SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Divider(
+                    thickness: 1,
+                    color: Colors.grey.withOpacity(0.8),
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Text('or'),
+                ),
+                Expanded(
+                    child: Divider(
+                  thickness: 1,
+                  color: Colors.grey.withOpacity(0.6),
+                ))
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    backgroundColor: kBlack,
+                    foregroundColor: kWhite),
+                onPressed: (() {}),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 8),
+                  child: Text(
+                    'Create account',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
             ),
           ),
-        ),
-      ],
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: RichText(
+              text: TextSpan(
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: Theme.of(context).textTheme.bodySmall!.fontSize),
+                text: 'By signing up, you agree to our',
+                children: <TextSpan>[
+                  const TextSpan(
+                      text: ' Terms',
+                      style: TextStyle(color: kBrandMain),
+                      children: [
+                        TextSpan(
+                            text: ',', style: TextStyle(color: Colors.black))
+                      ]),
+                  TextSpan(
+                      text: ' Privacy policy',
+                      style: const TextStyle(color: kBrandMain),
+                      children: [
+                        TextSpan(
+                            text: ' and',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .fontSize))
+                      ]),
+                  const TextSpan(
+                      text: ' Cookie use',
+                      style: TextStyle(color: kBrandMain),
+                      children: [
+                        TextSpan(
+                            text: '.', style: TextStyle(color: Colors.black))
+                      ])
+                ],
+              ),
+            ),
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
+              children: [
+                const Text('Have an account already?'),
+                TextButton(
+                  onPressed: (() {}),
+                  child: const Text('Login'),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          )
+        ],
+      ),
     );
   }
 }
