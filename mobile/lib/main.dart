@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mobile/constants/colors.dart';
-import 'package:mobile/screens/sign_in_screen.dart';
+import 'package:mobile/screens/sign_in_options_screen.dart';
 import 'package:mobile/theme.dart';
 
 void main() {
@@ -16,19 +14,7 @@ class MyApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
       theme: ref.watch(themeProvider),
-      home: Scaffold(
-        appBar: AppBar(actions: [
-          IconButton(
-            onPressed: (() {
-              ref.read(themeProvider.notifier).state = darkTheme;
-            }),
-            icon: const Icon(Icons.bluetooth),
-          ),
-        ]),
-        body: const Center(
-          child: SignInScreen(),
-        ),
-      ),
+      home: const SignInOptionsScreen(),
     );
   }
 }

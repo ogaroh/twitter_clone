@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/constants/colors.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({
+class SignInOptionsScreen extends StatelessWidget {
+  const SignInOptionsScreen({
     Key? key,
   }) : super(key: key);
 
@@ -156,17 +156,21 @@ class SignInScreen extends StatelessWidget {
           ),
           const Spacer(),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Row(
-              children: [
-                const Text('Have an account already?'),
-                TextButton(
-                  onPressed: (() {}),
-                  child: const Text('Login'),
-                ),
-              ],
-            ),
-          ),
+              padding: const EdgeInsets.only(left: 20.0),
+              child: Row(
+                children: [
+                  RichText(
+                    text: TextSpan(
+                        text: 'Have an account already?',
+                        style: TextStyle(color: Colors.black),
+                        children: [
+                          TextSpan(
+                              text: ' Login',
+                              style: TextStyle(color: kBrandMain))
+                        ]),
+                  ),
+                ],
+              )),
           const SizedBox(
             height: 10,
           )
