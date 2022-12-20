@@ -20,3 +20,10 @@ ThemeData lightTheme = ThemeData(
 ThemeData darkTheme = ThemeData(
   primarySwatch: darkSwatch,
 );
+
+var myHeader1Style = const TextStyle(fontSize: 23, fontWeight: FontWeight.w900);
+var textButtonStyle1 = const TextStyle(color: kBlack, fontSize: 17);
+var darkElevatedButtonStyle = ElevatedButton.styleFrom(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+    backgroundColor: kBlack,
+    foregroundColor: kWhite);
