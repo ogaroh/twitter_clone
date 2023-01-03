@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile/theme.dart';
+import 'package:mobile/widgets/reusable/row_app_bar.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = '/loginScreen';
@@ -14,33 +14,7 @@ class LoginScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(children: [
-            Row(
-              children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    alignment: Alignment.topLeft,
-                    width: double.infinity,
-                    child: TextButton(
-                      onPressed: (() {
-                        Navigator.of(context).pop();
-                      }),
-                      child: Text(
-                        'Cancel',
-                        style: textButtonStyle1,
-                      ),
-                    ),
-                  ),
-                ),
-                Flexible(
-                  flex: 1,
-                  child: SvgPicture.asset(
-                    'assets/svgs/twitter_logo.svg',
-                    height: 30,
-                  ),
-                ),
-              ],
-            ),
+            const RowAppBar(),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Text(
@@ -79,7 +53,7 @@ class LoginScreen extends StatelessWidget {
           ElevatedButton(
               style: darkElevatedButtonStyle,
               onPressed: (() {}),
-              child: Text('Next'))
+              child: const Text('Next'))
         ]),
       ),
     ));

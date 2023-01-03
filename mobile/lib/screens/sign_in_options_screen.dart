@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mobile/constants/colors.dart';
+import 'package:mobile/screens/create_account_screen.dart';
 import 'package:mobile/screens/log_in_screen.dart';
 import 'package:mobile/theme.dart';
 
@@ -119,7 +120,10 @@ class SignInOptionsScreen extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         style: darkElevatedButtonStyle,
-                        onPressed: (() {}),
+                        onPressed: (() {
+                          Navigator.of(context)
+                              .pushNamed(CreateAccountScreen.routeName);
+                        }),
                         child: const Padding(
                           padding: EdgeInsets.symmetric(
                               vertical: 15.0, horizontal: 8),
@@ -185,16 +189,16 @@ class SignInOptionsScreen extends StatelessWidget {
                           RichText(
                             text: TextSpan(
                                 text: 'Have an account already?',
-                                style: TextStyle(color: Colors.black),
+                                style: const TextStyle(color: Colors.black),
                                 children: [
                                   TextSpan(
                                       recognizer: TapGestureRecognizer()
                                         ..onTap = () {
-                                          Get.to(() => LoginScreen(),
+                                          Get.to(() => const LoginScreen(),
                                               transition: Transition.downToUp);
                                         },
                                       text: ' Log in',
-                                      style: TextStyle(color: kBrandMain))
+                                      style: const TextStyle(color: kBrandMain))
                                 ]),
                           ),
                         ],
