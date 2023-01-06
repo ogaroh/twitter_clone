@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mobile/providers/widgets_providers.dart';
 import 'package:mobile/theme.dart';
 import 'package:mobile/widgets/reusable/row_app_bar.dart';
 import 'package:mobile/widgets/reusable/underlined_textfield.dart';
 
-class CreateAccountScreen extends StatelessWidget {
+class CreateAccountScreen extends ConsumerWidget {
   static const routeName = '/createAccountScreen';
   const CreateAccountScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final nameController = TextEditingController();
     final phoneController = TextEditingController();
     final dateController = TextEditingController();
@@ -28,9 +30,18 @@ class CreateAccountScreen extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                UnderlinedTextIeld('Name', nameController),
-                UnderlinedTextIeld('Phone', phoneController),
-                UnderlinedTextIeld('Date of birth', dateController),
+                UnderlinedTextIeld(
+                    labelText: 'Name', controller: nameController),
+                Consumer(builder: ((context, ref, child) {
+                  var createWithPhone = ref.watch(usePhone);
+
+                  return UnderlinedTextIeld(
+                      labelText: createWithPhone ? 'Phone number' : 'Email',
+                      inputType: ref.watch(textInptTypeProvider),
+                      controller: phoneController);
+                })),
+                UnderlinedTextIeld(
+                    labelText: 'Date of birth', controller: dateController),
               ],
             ),
           ),
@@ -39,14 +50,20 @@ class CreateAccountScreen extends StatelessWidget {
           padding: const EdgeInsets.all(23.0),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            const Spacer(),
-            // TextButton(
-            //   onPressed: (() {}),
-            //   child: Text(
-            //     'Forgot password?',
-            //     style: textButtonStyle1,
-            //   ),
-            // ),
+            Consumer(builder: ((context, ref, child) {
+              var createWithPhone = ref.watch(usePhone);
+              return TextButton(
+                onPressed: (() {
+                  print(createWithPhone);
+
+                  ref.read(usePhone.notifier).state = !createWithPhone;
+                }),
+                child: Text(
+                  createWithPhone ? 'Use email instead' : 'Use phone instead',
+                  style: textButtonStyle1,
+                ),
+              );
+            })),
             ElevatedButton(
                 style: darkElevatedDisabledButtonStyle,
                 onPressed: (() {}),

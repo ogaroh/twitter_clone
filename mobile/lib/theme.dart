@@ -27,3 +27,10 @@ var darkElevatedButtonStyle = ElevatedButton.styleFrom(
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
     backgroundColor: kBlack,
     foregroundColor: kWhite);
+
+var darkElevatedDisabledButtonStyle = ElevatedButton.styleFrom(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+    backgroundColor: const Color(0xffd3d3d3),
+    foregroundColor: kWhite);
+
+var labelTextStyle = const TextStyle(color: kBlack);
