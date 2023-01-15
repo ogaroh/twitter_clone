@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+// import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile/constants/colors.dart';
 
 class DrawerWidget extends StatelessWidget {
+  const DrawerWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -36,7 +38,7 @@ class DrawerWidget extends StatelessWidget {
                           shape: BoxShape.circle,
                           border:
                               Border.all(color: Colors.grey.withOpacity(0.6))),
-                      child: Icon(Icons.add_outlined)))
+                      child: const Icon(Icons.add_outlined)))
             ],
           ),
           const SizedBox(

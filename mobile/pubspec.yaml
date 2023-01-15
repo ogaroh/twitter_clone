@@ -1,17 +1,16 @@
 name: mobile
 description: A new Flutter project.
 
-publish_to: 'none' 
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.4 <3.0.0'
+  sdk: ">=2.18.4 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
 
   cupertino_icons: ^1.0.2
   google_fonts: ^3.0.1
@@ -26,10 +25,24 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-
   uses-material-design: true
 
   assets:
     - assets/svgs/
+    - assets/fonts/
 
- 
+  fonts:
+    - family: ProductSans
+      fonts:
+        - asset: assets/fonts/ProductSansRegular.ttf
+          style: normal
+
+        - asset: assets/fonts/ProductSansItalic.ttf
+          style: italic
+
+        - asset: assets/fonts/ProductSansBold.ttf
+          weight: 700
+
+        - asset: assets/fonts/ProductSansBoldItalic.ttf
+          style: italic
+          weight: 700
