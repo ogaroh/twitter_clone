@@ -54,7 +54,7 @@ class CreateAccountScreen extends ConsumerWidget {
               var createWithPhone = ref.watch(usePhone);
               return TextButton(
                 onPressed: (() {
-                  print(createWithPhone);
+                  // print(createWithPhone);
 
                   ref.read(usePhone.notifier).state = !createWithPhone;
                 }),

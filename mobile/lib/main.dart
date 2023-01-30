@@ -6,6 +6,8 @@ import 'package:mobile/screens/home_screen.dart';
 import 'package:mobile/screens/log_in_screen.dart';
 import 'package:mobile/theme.dart';
 
+// import 'screens/sign_in_options_screen.dart';
+
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }

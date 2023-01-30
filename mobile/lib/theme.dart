@@ -8,6 +8,7 @@ import 'package:mobile/constants/colors.dart';
 final themeProvider = StateProvider<ThemeData>(((ref) => lightTheme));
 
 ThemeData lightTheme = ThemeData(
+    useMaterial3: true,
     appBarTheme: const AppBarTheme(
         color: kWhite,
         elevation: 0,
@@ -15,10 +16,14 @@ ThemeData lightTheme = ThemeData(
         shadowColor: kWhite,
         actionsIconTheme: IconThemeData(color: kBlack)),
     fontFamily: GoogleFonts.workSans().fontFamily,
+    // fontFamily: 'ProductSans',
     primarySwatch: mySwatch);
 
 ThemeData darkTheme = ThemeData(
+  useMaterial3: true,
   primarySwatch: darkSwatch,
+  fontFamily: GoogleFonts.workSans().fontFamily,
+  // fontFamily: 'ProductSans',
 );
 
 var myHeader1Style = const TextStyle(fontSize: 23, fontWeight: FontWeight.w900);
