@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                             return Container(
                               padding: const EdgeInsets.all(20),
                               height: MediaQuery.of(context).size.height * 0.4,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                   color: kWhite,
                                   borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(30),
@@ -130,10 +130,17 @@ class HomeScreen extends StatelessWidget {
                   icon: Icon(Icons.notifications), label: ''),
               BottomNavigationBarItem(icon: Icon(Icons.message), label: ''),
             ]),
-        floatingActionButton: FloatingActionButton(
-            backgroundColor: kBrandMain,
-            onPressed: (() {}),
-            child: const Icon(Icons.add)),
+        floatingActionButton: Container(
+            padding: const EdgeInsets.all(10),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: kBrandMain,
+            ),
+            child: const Icon(
+              Icons.add,
+              size: 30,
+              color: kWhite,
+            )),
       ),
     );
   }
